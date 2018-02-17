@@ -20,9 +20,6 @@
   // The signed-in user info.
   var user = result.user;
   console.log(user.displayName);
-   $('#google-sign').addClass('hidden');
-  $('#play').removeClass('hidden');
-  $('#play2').removeClass('hidden');
  
 
   // ...
@@ -38,7 +35,28 @@
 });
 }
 
-
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    var displayName = user.displayName;
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    var providerData = user.providerData;
+    // ...
+    // 
+    console.log(displayName);
+    console.log(photoURL);
+    $('#google-sign').addClass('hidden');
+    $('#play').addClass('hidden');
+    $('#play2').addClass('hidden');
+  } else {
+    // User is signed out.
+    // ...
+  }
+});
 
 
 fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple')
