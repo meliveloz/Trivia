@@ -1,0 +1,31 @@
+body{
+    background-color: peachpuff;
+
+}
+button{
+    display: block;
+    width: 70%;
+    margin-bottom: 2em;
+    margin-top: 2em;
+    background-color: tomato;
+    margin-left: 15%;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+
+}
+.mainTitle{
+    font-family: 'Indie Flower', cursive;
+    font-weight: bold;
+    font-size: 4em;
+    padding-top: 1em;
+    color: tomato;
+}
+img{
+    margin-left: 50%;
+}
+#question{
+    padding-top: 2em;
+    font-family: 'Montserrat', sans-serif;
+}
+
