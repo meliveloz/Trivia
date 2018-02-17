@@ -117,7 +117,7 @@ $('.choice').on('click',function(){
  if($(this).text() === results[count].correct_answer && count !== 10){
  $('.game').empty();
 $('.game').append('<h1 class="message">Respuesta Correcta!</h1>');
-$('#play2').text('Next');
+$('#play2').text('Next Question');
  $('#play2').removeClass('hidden');
  $('.icon').show();
 
@@ -125,7 +125,7 @@ $('#play2').text('Next');
 if($(this).text() !== results[count].correct_answer && count !== 10){
   $('.game').empty();
   $('.game').append(`<h1 class="message">Respuesta Incorrecta!</h1>`);
-  $('#play2').text('Next');
+  $('#play2').text('Next Question');
  $('#play2').removeClass('hidden');
 
 
