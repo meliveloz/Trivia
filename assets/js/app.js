@@ -36,6 +36,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE) //esto es pa
   // The signed-in user info.
   var user = result.user;
   console.log(user.displayName);
+   $('.image').append('<p>Welcome '+ user.displayName +'<p>');
  
 
   // ...
@@ -66,7 +67,7 @@ function observador(){
     $('#google-sign').addClass('hidden');
     $('#play').removeClass('hidden');
     $('#play2').removeClass('hidden');
-    $('.image').append('<p>Welcome '+displayName+'<p>');
+   
 
   } else {
     // User is signed out.
