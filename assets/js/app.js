@@ -51,12 +51,12 @@ $('.choice').on('click',function(){
  $('.game').empty();
  $('#play').text('Next');
  $('#play').removeClass('hidden');
-$('.game').append('<h1 class="message">Respuesta Correcta!</h1>');
+$('.game').append('<h1 class="message">Correct Answer!!</h1>');
 
  }
 if($(this).text() !== results[count].correct_answer && count !== 10){
   $('.game').empty();
-  $('.game').append(`<h1 class="message">Respuesta Incorrecta!</h1><span>La respuesta correcta es ${results[count].correct_answer}<span>`);
+  $('.game').append(`<h1 class="message">Aww wrong answer!</h1><span>The correct answer is ${results[count].correct_answer}<span>`);
 
   $('#play').removeClass('hidden');
   
@@ -116,7 +116,7 @@ $('.choice').on('click',function(){
 //si la respuesta escogida es igual a la respuesta correcta
  if($(this).text() === results[count].correct_answer && count !== 10){
  $('.game').empty();
-$('.game').append('<h1 class="message">Respuesta Correcta!</h1>');
+$('.game').append('<h1 class="message">Correct answer!!</h1>');
 $('#play2').text('Next Question');
  $('#play2').removeClass('hidden');
  $('.icon').show();
@@ -124,7 +124,7 @@ $('#play2').text('Next Question');
  }
 if($(this).text() !== results[count].correct_answer && count !== 10){
   $('.game').empty();
-  $('.game').append(`<h1 class="message">Respuesta Incorrecta!</h1>`);
+  $('.game').append(`<h1 class="message">Aww wrong answer!</h1>`);
   $('#play2').text('Next Question');
  $('#play2').removeClass('hidden');
 
