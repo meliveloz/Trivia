@@ -9,6 +9,7 @@
     messagingSenderId: "889129880038"
   };
 
+//Iniciar con google.
   firebase.initializeApp(config);
  var provider = new firebase.auth.GoogleAuthProvider();
 
@@ -34,8 +35,23 @@
 });
 }
 
+var user = firebase.auth().currentUser;
+var name, email, photoUrl, uid, emailVerified;
 
+if (user != null) {
+  name = user.displayName;
+  email = user.email;
+  photoUrl = user.photoURL;
+  emailVerified = user.emailVerified;
+  uid = user.uid;  
 
+  console.log(name);
+  console.log(email);
+  console.log(photo);
+  $('#google-sign').addClass('hidden');
+  $('#play').removeClass('hidden');
+  $('#play2').removeClass('hidden');
+}
 
 
 fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple')
