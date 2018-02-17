@@ -56,11 +56,6 @@ function observador(){
   if (user) {
     console.log("existe usuario activo");
     // User is signed in.
-   $('#google-sign').addClass('hidden');
-    $('#play').removeClass('hidden');
-    $('#play2').removeClass('hidden');
-    $('.image').append('<p>Welcome '+displayName+'<p>');
-
     var displayName = user.displayName;
     var email = user.email;
     var emailVerified = user.emailVerified;
@@ -68,7 +63,11 @@ function observador(){
     var isAnonymous = user.isAnonymous;
     var uid = user.uid;
     var providerData = user.providerData;
-    // ...
+    $('#google-sign').addClass('hidden');
+    $('#play').removeClass('hidden');
+    $('#play2').removeClass('hidden');
+    $('.image').append('<p>Welcome '+displayName+'<p>');
+
   } else {
     // User is signed out.
     // ...
