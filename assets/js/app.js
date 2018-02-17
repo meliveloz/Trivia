@@ -5,6 +5,7 @@ return response.json();
 })
 .then((data) =>{
   console.log(data);
+let correct = 0;
 let count = 0; //para ir avanzando a traves del array results a cada click.
 $('.game').empty();
 $('#play').on('click', function(){
@@ -49,14 +50,15 @@ $('.choice').on('click',function(){
 //si la respuesta escogida es igual a la respuesta correcta
  if($(this).text() === results[count].correct_answer && count !== 10){
  $('.game').empty();
- $('#play').text('Next');
+ $('#play').text('Next Question');
  $('#play').removeClass('hidden');
 $('.game').append('<h1 class="message">Correct Answer!!</h1>');
 
+correct ++; console.log(correct);
  }
 if($(this).text() !== results[count].correct_answer && count !== 10){
   $('.game').empty();
-  $('.game').append(`<h1 class="message">Aww wrong answer!</h1><span>The correct answer is ${results[count].correct_answer}<span>`);
+  $('.game').append(`<h1 class="message">Aww wrong answer!</h1><span class="message">The correct answer is ${results[count].correct_answer}<span>`);
 
   $('#play').removeClass('hidden');
   
@@ -64,8 +66,15 @@ if($(this).text() !== results[count].correct_answer && count !== 10){
  }count++; console.log(count);
  if(count === 10){
 $('.game').empty();
-$('.game').append('<h1>final !!!</h1>')
+$('.game').append(`<h1>You got ${correct} out of 15</h1>`);
+$('.game').append('<button class="playAgain" >Play Again</button>');
+$('#play').addClass('hidden');
  }
+
+$('.playAgain').on('click', function(){
+location.reload();
+
+})
 })
 
 });
