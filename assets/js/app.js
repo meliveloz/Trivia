@@ -1,4 +1,43 @@
 
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDW2TQCRWdfe6pcW_9RkOy3PYwOoozhAW0",
+    authDomain: "trivia-2146e.firebaseapp.com",
+    databaseURL: "https://trivia-2146e.firebaseio.com",
+    projectId: "trivia-2146e",
+    storageBucket: "",
+    messagingSenderId: "889129880038"
+  };
+
+  firebase.initializeApp(config);
+ var provider = new firebase.auth.GoogleAuthProvider();
+
+ function signIn(){
+ firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Google Access Token. You can use it to access the Google API.
+  var token = result.credential.accessToken;
+  // The signed-in user info.
+  var user = result.user;
+  console.log(user.displayName);
+ 
+
+  // ...
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+  // ...
+});
+}
+
+
+
+
+
 fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple')
 .then((response)=>{
 return response.json();
@@ -87,7 +126,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=bo
   return response.json();
 }).then((data)=>{
   console.log(data);
-
+  let correct =0;
   let count = 0;
   $('.game').empty();
 $('#play2').on('click', function(){
@@ -129,7 +168,7 @@ $('.game').append('<h1 class="message">Correct answer!!</h1>');
 $('#play2').text('Next Question');
  $('#play2').removeClass('hidden');
  $('.icon').show();
-
+ correct++; console.log(correct);
  }
 if($(this).text() !== results[count].correct_answer && count !== 10){
   $('.game').empty();
@@ -141,8 +180,15 @@ if($(this).text() !== results[count].correct_answer && count !== 10){
  }count++; 
  if(count === 10){
 $('.game').empty();
-$('.game').append('<h1>final !!!</h1>')
+$('.game').append(`<h1>You got ${correct} out of 15</h1>`);
+$('.game').append('<button class="playAgain" >Play Again</button>');
+$('#play2').addClass('hidden');
+
  }
+ $('.playAgain').on('click', function(){
+location.reload();
+
+})
 })
 
 });
