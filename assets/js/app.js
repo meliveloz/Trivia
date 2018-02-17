@@ -35,9 +35,15 @@
 });
 }
 
-firebase.auth().onAuthStateChanged(function(user) {
+function observador(){
+  firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+    console.log("existe usuario activo");
     // User is signed in.
+   $('#google-sign').addClass('hidden');
+    $('#play').addClass('hidden');
+    $('#play2').addClass('hidden');
+
     var displayName = user.displayName;
     var email = user.email;
     var emailVerified = user.emailVerified;
@@ -46,17 +52,18 @@ firebase.auth().onAuthStateChanged(function(user) {
     var uid = user.uid;
     var providerData = user.providerData;
     // ...
-    // 
-    console.log(displayName);
-    console.log(photoURL);
-    $('#google-sign').addClass('hidden');
-    $('#play').addClass('hidden');
-    $('#play2').addClass('hidden');
   } else {
     // User is signed out.
     // ...
+    //
+    console.log("No existe usuario activo");
   }
 });
+
+}
+
+observador();
+    
 
 
 fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple')
