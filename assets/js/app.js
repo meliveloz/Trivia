@@ -26,7 +26,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE) //esto es pa
     var errorCode = error.code;
     var errorMessage = error.message;
   });
-  
+
  var provider = new firebase.auth.GoogleAuthProvider();
 
  function signIn(){
@@ -59,6 +59,7 @@ function observador(){
    $('#google-sign').addClass('hidden');
     $('#play').removeClass('hidden');
     $('#play2').removeClass('hidden');
+    $('.image').append('<p>Welcome '+displayName+'<p>');
 
     var displayName = user.displayName;
     var email = user.email;
