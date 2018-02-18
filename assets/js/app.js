@@ -150,7 +150,7 @@ if($(this).text() !== results[count].correct_answer && count !== 10){
  }count++; console.log(count);
  if(count === 10){
 $('.game').empty();
-$('.game').append(`<h1>You got ${correct} out of 15</h1>`);
+$('.game').append(`<h1>You got ${correct} out of 10</h1>`);
 $('.game').append('<button class="playAgain" >Play Again</button>');
 $('#play').addClass('hidden');
  }
@@ -225,7 +225,7 @@ if($(this).text() !== results[count].correct_answer && count !== 10){
  }count++; 
  if(count === 10){
 $('.game').empty();
-$('.game').append(`<h1>You got ${correct} out of 15</h1>`);
+$('.game').append(`<h1>You got ${correct} out of 10</h1>`);
 $('.game').append('<button class="playAgain" >Play Again</button>');
 $('#play2').addClass('hidden');
 
