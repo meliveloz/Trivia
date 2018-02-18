@@ -36,7 +36,7 @@ function signIn() {
     // The signed-in user info.
     var user = result.user;
     console.log(user.displayName);
-    $('.image').append('<p>Welcome ' + user.displayName + '<p>');
+    $('.image').append('<p class="nameUser">Welcome ' + user.displayName + '!<p>');
  
 
   // ...

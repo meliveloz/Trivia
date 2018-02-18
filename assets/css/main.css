@@ -29,3 +29,8 @@ img{
     font-family: 'Montserrat', sans-serif;
 }
 
+.nameUser{
+    font-weight: bold;
+    color:#6F6B6B;
+    font-size: 1.5em;
+}
