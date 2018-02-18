@@ -199,7 +199,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=bo
         // si la respuesta escogida es igual a la respuesta correcta
         if ($(this).text() === results[count].correct_answer && count !== 10) {
           $('.game').empty();
-          $('.game').append('<h1 class="message">Correct answer!!</h1><img src="../images/knowledge-respect.png">');
+          $('.game').append('<h1 class="message">Correct answer!!</h1>');
           $('#play2').text('Next Question');
           $('#play2').removeClass('hidden');
           $('.icon').show();
