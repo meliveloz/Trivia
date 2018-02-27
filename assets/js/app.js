@@ -89,6 +89,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=
     let count = 0; // para ir avanzando a traves del array results a cada click.
     $('.game').empty();
     $('#play').on('click', function() {
+      $('.raccon').addClass('hidden');
       $('.message').empty();
       $('#play').addClass('hidden');
       $('#play2').addClass('hidden');
@@ -129,16 +130,17 @@ fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=
       $('.choice').on('click', function() {
         // si la respuesta escogida es igual a la respuesta correcta
         if ($(this).text() === results[count].correct_answer && count !== 10) {
+          $('.raccon').addClass('hidden');
           $('.game').empty();
           $('#play').text('Next Question');
           $('#play').removeClass('hidden');
-          $('.game').append('<h1 class="message">Correct Answer!!</h1>');
+          $('.game').append(`<div class='row'><div class='col-lg-6 col-lg-offset-3'><h1 class="message">Correct Answer!!</h1><img class='img-responsiv raccon' src='assets/images/iT5Jh.jpg'></div></div>`);
 
           correct ++; console.log(correct);
         }
         if ($(this).text() !== results[count].correct_answer && count !== 10) {
           $('.game').empty();
-          $('.game').append(`<h1 class="message">Aww wrong answer!</h1><span class="message">The correct answer is ${results[count].correct_answer}<span>`);
+          $('.game').append(`<h1 class="message">Aww wrong answer!</h1><span class="message">The correct answer is ${results[count].correct_answer}<span><div class='row'><div col-lg-6 col-lg-offset-3><img class='img-responsiv raccon' src='assets/images/just-dont.jpg'></div></div>`);
 
           $('#play').removeClass('hidden');
         }count++; console.log(count);
@@ -165,6 +167,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=bo
     let count = 0;
     $('.game').empty();
     $('#play2').on('click', function() {
+      $('.raccon').addClass('hidden');
       $('.message').empty();
       $('#play').addClass('hidden');
       $('#play2').addClass('hidden');
@@ -199,7 +202,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=bo
         // si la respuesta escogida es igual a la respuesta correcta
         if ($(this).text() === results[count].correct_answer && count !== 10) {
           $('.game').empty();
-          $('.game').append('<h1 class="message">Correct answer!!</h1>');
+          $('.game').append(`<div class='row'><div class='col-lg-6 col-lg-offset-3'><h1 class="message">Correct Answer!!</h1><img class='img-responsiv raccon' src='assets/images/iT5Jh.jpg'></div></div>`);
           $('#play2').text('Next Question');
           $('#play2').removeClass('hidden');
           $('.icon').show();
@@ -207,7 +210,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=bo
         }
         if ($(this).text() !== results[count].correct_answer && count !== 10) {
           $('.game').empty();
-          $('.game').append(`<h1 class='message'>Aww wrong answer!</h1>`);
+          $('.game').append(`<h1 class='message'>Aww wrong answer!</h1><div class='row'><div col-lg-6 col-lg-offset-3><img class='img-responsiv raccon' src='assets/images/just-dont.jpg'></div></div>`);
           $('#play2').text('Next Question');
           $('#play2').removeClass('hidden');
         }count++; 
